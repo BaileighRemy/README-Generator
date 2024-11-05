@@ -1,6 +1,7 @@
 // TODO: Include packages needed for this application
 import fs from 'fs';
 import inquirer from 'inquirer';
+import renderLicenseSection from './utils/generateMarkdown.js';
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -34,6 +35,12 @@ const questions = [
         name: 'tests',
         message: 'Please provide test instructions for your project:',
     },
+    {
+        type: 'list',
+        name: 'license',
+        message: 'What license does your project have?',
+        choices: ['MIT', 'Apache 2.0', 'GPL 3.0', 'None'],
+      },
 ];
 
 // TODO: Create a function to write README file
@@ -69,6 +76,9 @@ function init() {
 
         ## Tests
         ${answers.tests}
+
+        ## License
+        ${renderLicenseSection(answers.license)}
 
          `;
             writeToFile('README.md', readmeContent);

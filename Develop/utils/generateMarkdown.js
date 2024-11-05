@@ -40,13 +40,13 @@ function renderLicenseSection(license) {
   if (!license) {
     return '';
   }
-  return `## License\n\n${renderLicenseBadge(license)}\n\n${renderLicenseLink(license)}`;
+  return `\n\n${renderLicenseBadge(license)}\n\n${renderLicenseLink(license)}`;
 }
 
 // TODO: Create a function to generate markdown for README
-function generateMarkdown(data) {
-  return `# ${data.title}\n\n${renderLicenseSection(data.license)}`;
+// function generateMarkdown(answers) {
+//   return `# ${answers.license}\n\n${renderLicenseSection(license)}`;
 
-}
+// }
 
-export default generateMarkdown;
+export default renderLicenseSection;
